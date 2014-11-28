@@ -39,6 +39,12 @@ public class GuestbookListServlet extends HttpServlet {
 		request.setAttribute("list",list);
 		request.setAttribute("count", count);
 		request.setAttribute("pageCount", pageCount);
+		request.setAttribute("currentIndex", ipg);
+		
+		int begin = Math.max(1, ipg - 5);
+	    int end = Math.min(begin + 10 -1,pageCount);
+	    request.setAttribute("beginIndex", begin);
+	    request.setAttribute("endIndex", end);		
 		// 그 결과를 jsp에게 전달한다.
 		// /WEB-INF/views/list.jsp 포워딩.
 		// 반드시 / 로 시작!!
